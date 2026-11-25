@@ -11,6 +11,14 @@ export default defineConfig({
   title: '转储到模型',
   description: '从 3DMigoto 转储文件到 Blender 模型 —— 全流程教程',
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}logo.svg` }],
+  ],
+
+  sitemap: {
+    hostname: 'https://linstar2006.github.io/SSMT4-Tutorial/',
+  },
+
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
