@@ -20,15 +20,19 @@ pnpm run build
 pnpm run preview
 ```
 
-如果 `pnpm` 不在 PATH 里（本机 dsh 运行时的情况）：
+如果 `pnpm` 不在 PATH（例如用的是某个自带的 Node 运行时，只装了 `node`），可以绕过 shell 直接用 node 调它的入口脚本：
 
 ```powershell
-$node = "C:\Users\North\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin"
-$pnpm = "C:\Users\North\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\pnpm\bin\pnpm.cjs"
+$node = "<Node 安装目录>\bin"
+$pnpm = "<pnpm 安装目录>\bin\pnpm.cjs"
 $env:PATH = "$node;$env:PATH"
+
+node $pnpm install
 node $pnpm run build
 node $pnpm exec vitepress preview --port 4173
 ```
+
+`pnpm` 的目录里通常只有 `bin\pnpm.cjs` / `bin\pnpm.mjs`，没有 `.cmd`，所以不能直接当命令名调用。
 
 ## 目录结构
 

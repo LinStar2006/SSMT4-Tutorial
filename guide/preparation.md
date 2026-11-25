@@ -10,7 +10,7 @@
 - 对应版本的 3DMigoto（32 位 / 64 位要匹配）
 - `d3dx.ini` 配置好
 
-大部分游戏的配置方式在 [SSMT4 文档站](https://perxacid-acid.github.io/SSMT4-Documents/) 的「游戏配置」里有现成的。这里不重复，只说跟提取相关的部分。
+大部分游戏的配置方式在 [SSMT4 文档站](https://perxenic-acid.github.io/SSMT4-Documents/) 的「游戏配置」里有现成的。这里不重复，只说跟提取相关的部分。
 
 ### 2. Python 3.8+
 
@@ -30,7 +30,7 @@ pip install numpy pillow
 | `Pillow` | 读 `.dds` 贴图（含 BC7 压缩格式）转 PNG |
 
 ::: tip 不需要 scipy
-教程里的所有判断（up 轴、绕序）都只用 numpy 实现，不依赖 scipy。本机装 scipy 也能用，但不是必须。
+教程里的所有判断（up 轴、绕序）都只用 numpy 实现，不依赖 scipy。装了也不冲突，但不是必须。
 :::
 
 ### 3. Blender
