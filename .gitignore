@@ -1,0 +1,17 @@
+# 依赖
+node_modules/
+
+# VitePress 构建产物
+.vitepress/dist/
+.vitepress/cache/
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# 本地临时
+_*.py
+*.tmp

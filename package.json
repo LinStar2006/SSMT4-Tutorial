@@ -1,0 +1,15 @@
+{
+  "name": "ssmt-tutorial-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "从 3DMigoto 转储到 Blender 模型 —— 全流程教程",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
