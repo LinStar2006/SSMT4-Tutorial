@@ -4,6 +4,8 @@
 
 **不假设你装了 SSMT4 或任何提取工具** —— 全部用 Python 手搓，每一步都能验证。
 
+线上阅读：**https://linstar2006.github.io/SSMT4-Tutorial/**
+
 ## 本地运行
 
 ```powershell
@@ -69,23 +71,29 @@ dev/
 
 ## 部署（GitHub Pages）
 
-```powershell
-# 构建
-pnpm run build
+线上地址：**https://linstar2006.github.io/SSMT4-Tutorial/**
 
-# .vitepress/dist 就是静态站点根目录
-# 推到 gh-pages 分支即可
+当前用的是 **gh-pages 分支**方案（`build_type=legacy`，不需要 Actions 权限）：
+
+```powershell
+.\deploy.ps1
 ```
 
-如果用 GitHub Actions，`base` 需要设成仓库名：
+脚本做的事：用 `DOCS_BASE=/SSMT4-Tutorial/` 构建 → 把 `.vitepress/dist` 复制到临时目录 → 加 `.nojekyll` → 强推到 `gh-pages` 分支。
+
+`base` 由环境变量控制，本地不受影响：
 
 ```ts
 // .vitepress/config.mts
-export default defineConfig({
-  base: '/<repo-name>/',
-  // ...
-})
+const base = process.env.DOCS_BASE || '/'
+export default defineConfig({ base, /* ... */ })
 ```
+
+想改成 GitHub Actions 方式：把 [`deploy-workflow.example.yml`](deploy-workflow.example.yml) 移到 `.github/workflows/deploy.yml` 再 push。
+**注意**：push 含 `.github/workflows/` 的提交需要一个带 `workflow` scope 的 token（细粒度 token 需勾 `Workflows: Read and write`），普通 classic PAT 默认没有这个权限，会报
+`refusing to allow a Personal Access Token to create or update workflow ... without workflow scope`。
+
+同时记得把仓库 Settings → Pages → Source 从 `Deploy from a branch` 改成 `GitHub Actions`。
 
 ## 写作约定
 
